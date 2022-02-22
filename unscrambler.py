@@ -1,6 +1,6 @@
-import requests
-import itertools
-import time
+from requests import get
+from itertools import permutations
+from time import sleep
 
 print("--UNSCRAMBLER--")
 
@@ -16,19 +16,19 @@ def again():
         exit()
     else:
         print("Please enter valid option. Retry in 5 seconds.")
-        time.sleep(5)
+        sleep(5)
         again()
 
 def main():
     scrambled_word = input("Enter scrambled word: ")
 
-    combinations = [comb for comb in itertools.permutations(scrambled_word, len(scrambled_word))]
+    combinations = [comb for comb in permutations(scrambled_word, len(scrambled_word))]
 
     wordList = []
 
     for i in combinations:
         word = ''.join(i)
-        response = requests.get(f'https://en.wiktionary.org/wiki/{word}')
+        response = get(f'https://en.wiktionary.org/wiki/{word}')
         if response.status_code == 200:
             wordList.append(word)
 
