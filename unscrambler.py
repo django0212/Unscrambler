@@ -8,11 +8,11 @@ print("--UNSCRAMBLER--")
 #wordlist = wordlist_whole.text.split('\n')
 
 def again():
-    chc = input("Again [Y/n]? ")
+    chc = input("Again [y/n]? ")
     
-    if chc.lower() == "y":
+    if chc.lower().strip() == "y":
         main()
-    elif chc.lower() == "n":
+    elif chc.lower().strip() == "n":
         exit()
     else:
         print("Please enter valid option. Retry in 5 seconds.")
