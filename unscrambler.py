@@ -28,6 +28,7 @@ def main():
 
     for i in combinations:
         word = ''.join(i)
+        # it will be better to use a library such as pyenchant instead of wiktionary to check the validity of words
         response = get(f'https://en.wiktionary.org/wiki/{word}')
         if response.status_code == 200:
             wordList.append(word)
